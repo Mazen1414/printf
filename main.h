@@ -1,9 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
+<<<<<<< HEAD
+=======
+
+#include <stdlib.h>
+>>>>>>> 76b8a5b197e754f86bbefed2be3d304c4b30bac9
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
 
+<<<<<<< HEAD
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
@@ -115,3 +121,28 @@ long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
+=======
+int _putchar(char c);
+int _printf(const char *format, ...);
+int (*check_conv_specifier(const char *))(va_list);
+
+/**
+ * struct func - struct containing capsules of a conv specifier and its
+ * associated function
+ * @t: character to check that looks at the conversion specifier
+ * @f: pointer to specific print functions per conv specifier
+ */
+typedef struct func
+{
+        char *t;
+        int (*f)(va_list);
+} func_t;
+
+int print_char(va_list);
+int print_str(va_list);
+int print_perc(va_list);
+int print_int(va_list);
+int print_dec(va_list);
+
+#endif
+>>>>>>> 76b8a5b197e754f86bbefed2be3d304c4b30bac9
