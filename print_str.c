@@ -10,19 +10,22 @@
 
 int print_str(va_list args)
 {
-        int i;
+        size_t i = 0;
         int count = 0;
-        char *str;
+        const char *str;
 
-        str = va_arg(args, char *);
+        str = va_arg(args, const char *);
+
         if (str == NULL)
                 return (-1);
 
         while (str[i])
         {
                 count = write(1, &str[i], 1);
-                i = i + 1;
+                if (count == -1)
+			return (-1);
+		i++;
         }
 
-        return (count);
+        return ((int)i);
 }
